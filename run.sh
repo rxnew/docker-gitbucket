@@ -1,6 +1,6 @@
 #!/bin/bash
 
-image="rxnew/gitbucket"
+image="ngc/gitbucket"
 tag="latest"
 name="gitbucket"
 hostname="${name}"
@@ -13,13 +13,15 @@ storage_name="${name}_stroge"
 storage_dir="/home/gitbucket/tomcat/webapps/gitbucket"
 
 usage_exit() {
-    echo "Usage: ${0} [-t tag]" 1>&2
+    echo "Usage: ${0} [-i image -t tag]" 1>&2
     exit 1
 }
 
-while getopts t:h OPT
+while getopts i:t:h OPT
 do
     case ${OPT} in
+        i)  image=${OPTARG}
+            ;;
         t)  tag=${OPTARG}
             ;;
         h)  usage_exit
