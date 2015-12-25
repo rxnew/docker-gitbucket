@@ -12,8 +12,8 @@ USER    gitbucket
 WORKDIR /home/gitbucket
 RUN     tomcat7-instance-create tomcat
 WORKDIR /home/gitbucket/tomcat
-COPY    ./files/webapps/gitbucket.war webapps/gitbucket.war
 ENTRYPOINT \
         sudo ip addr add 172.17.240.1/16 dev eth0 && \
         ./bin/startup.sh && \
+        sudo chown -R gitbucket:gitbucket webapps && \
         /bin/bash
