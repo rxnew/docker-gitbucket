@@ -13,7 +13,7 @@ WORKDIR /home/gitbucket
 RUN     tomcat7-instance-create tomcat
 WORKDIR /home/gitbucket/tomcat
 COPY    ./files/webapps/gitbucket.war webapps/gitbucket.war
-RUN     ./bin/startup.sh
 ENTRYPOINT \
         sudo ip addr add 172.17.240.1/16 dev eth0 && \
+        ./bin/startup.sh && \
         /bin/bash
