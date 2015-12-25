@@ -30,4 +30,4 @@ do
 done
 
 command docker run -d -v ${storage_dir} --name ${storage_name} ${storage_image} true
-command docker run -d -t -i -p ${port}:22 --name ${name} --hostname ${hostname} --volumes-from ${storage_name} -v ${host_dir}:${dir} ${image}:${tag} ${shell}
+command docker run -d -t -i -p ${port}:22 --privileged --name ${name} --hostname ${hostname} --volumes-from ${storage_name} -v ${host_dir}:${dir} ${image}:${tag} ${shell}
