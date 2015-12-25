@@ -11,9 +11,10 @@ RUN     gpasswd -a gitbucket sudo
 USER    gitbucket
 WORKDIR /home/gitbucket
 RUN     tomcat7-instance-create tomcat
-WORKDIR /home/gitbucket/tomcat
+COPY    ./files/gitbucket.war tomcat/webapps/gitbucket.war
+RUN     sudo chown gitbucket:gitbucket tomcat/webapps/gitbucket.war
 ENTRYPOINT \
         sudo ip addr add 172.17.240.1/16 dev eth0 && \
-        ./bin/startup.sh && \
-        sudo chown -R gitbucket:gitbucket webapps && \
+        sudo chown -R gitbucket:gitbucket .gitbucket && \
+        ./tomcat/bin/startup.sh && \
         /bin/bash

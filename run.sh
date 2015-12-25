@@ -5,8 +5,6 @@ tag="latest"
 name="gitbucket"
 hostname="${name}"
 shell="/bin/bash"
-host_dir="`pwd`/share"
-dir="/home/gitbucket/share"
 
 storage_image="ngc/gitbucket/storage:latest"
 storage_name="${name}_stroge"
@@ -31,4 +29,4 @@ do
 done
 
 command docker run -d --name ${storage_name} ${storage_image} true
-command docker run -d -t -i --privileged --name ${name} --hostname ${hostname} --volumes-from ${storage_name} -v ${host_dir}:${dir} ${image}:${tag} ${shell}
+command docker run -d -t -i --privileged --name ${name} --hostname ${hostname} --volumes-from ${storage_name} ${image}:${tag} ${shell}
