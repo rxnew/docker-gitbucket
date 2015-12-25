@@ -28,5 +28,5 @@ do
     esac
 done
 
-command docker run -d --name ${storage_name} ${storage_image} true
-command docker run -d -t -i --privileged --name ${name} --hostname ${hostname} --volumes-from ${storage_name} ${image}:${tag} ${shell}
+command docker run -d -v /etc/localtime:/etc/localtime:ro --name ${storage_name} ${storage_image} true
+command docker run -d -t -i --privileged -v /etc/localtime:/etc/localtime:ro --name ${name} --hostname ${hostname} --volumes-from ${storage_name} ${image}:${tag} ${shell}
