@@ -1,0 +1,5 @@
+#!/bin/bash
+
+[ ${#} -eq 1 ] && /bin/ip addr add ${1}/16 dev eth0
+/usr/sbin/service tomcat7 start
+/bin/bash
