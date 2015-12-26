@@ -1,13 +1,14 @@
 storage:
-  build: storage
+  image: busybox
   container_name: gitbucket-storage
   volumes:
+    - /home/gitbucket/.gitbucket
     - /etc/localtime:/etc/localtime:ro
     - ./volume:/home/gitbucket/.gitbucket
 
 server:
-  build: server
-  container_name: gitbucket-server
+  build: .
+  container_name: gitbucket
   hostname: gitbucket
   volumes:
     - /etc/localtime:/etc/localtime:ro
