@@ -4,10 +4,12 @@ RUN     apt-get -y upgrade
 RUN     apt-get install -y software-properties-common
 RUN     apt-add-repository -y ppa:openjdk-r/ppa
 RUN     apt-get -y update
-RUN     apt-get install -y openjdk-8-jdk tomcat7 tomcat7-user
+RUN     apt-get install -y openjdk-8-jdk tomcat7 tomcat7-user wget
 WORKDIR /root
 RUN     tomcat7-instance-create tomcat
-COPY    ./files/gitbucket.war tomcat/webapps/gitbucket.war
+WORKDIR /root/tomcat/webapps
+RUN     wget https://github.com/gitbucket/gitbucket/releases/download/3.9/gitbucket.war
+WORKDIR /root
 COPY    ./files/container-init /usr/local/sbin/container-init
 RUN     chmod +x /usr/local/sbin/container-init
 CMD     ["container-init"]
