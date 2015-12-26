@@ -1,9 +1,11 @@
-# Install docker-compose
-    $ curl -L https://github.com/docker/compose/releases/download/1.5.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+# GitBucket on Docker
+### Install docker-compose
+    $ curl -L https://github.com/docker/compose/releases/download/1.5.2/docker-compose-`uname -s`-`uname -m` \
+      > /usr/local/bin/docker-compose
     $ chmod +x /usr/local/bin/docker-compose
 
-# Build images
+### Build images
     $ docker-compose build
 
-# Run container
+### Run containers
     $ docker-compose up -d
