@@ -4,7 +4,7 @@ storage:
   volumes:
     - /root/.gitbucket
     - /etc/localtime:/etc/localtime:ro
-    - ./volume:/root/.gitbucket
+    - ./volume/.gitbukcet:/root/.gitbucket
 
 server:
   build: .
