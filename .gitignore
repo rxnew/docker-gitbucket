@@ -10,3 +10,5 @@ GTAGS
 /build/*
 !.gitkeep
 !/lib/*.a
+/share/*
+!/share/.gitkeep
