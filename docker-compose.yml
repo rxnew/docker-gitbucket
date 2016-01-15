@@ -17,4 +17,4 @@ server:
   privileged: true
   tty: true
   stdin_open: true
-  command: ["container-init", "172.17.240.1"]
+  command: ["entry", "172.17.240.1"]

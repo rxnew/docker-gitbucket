@@ -10,6 +10,6 @@ RUN     tomcat7-instance-create tomcat
 WORKDIR /root/tomcat/webapps
 RUN     wget https://github.com/gitbucket/gitbucket/releases/download/3.9/gitbucket.war
 WORKDIR /root
-COPY    ./files/container-init /usr/local/sbin/container-init
-RUN     chmod +x /usr/local/sbin/container-init
-CMD     ["container-init"]
+COPY    ./files/entry /usr/local/sbin/entry
+RUN     chmod +x /usr/local/sbin/entry
+CMD     ["entry"]
