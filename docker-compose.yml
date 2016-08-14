@@ -1,20 +1,19 @@
-storage:
-  image: busybox
-  container_name: gitbucket-storage
-  volumes:
-    - /root/.gitbucket
-    - /etc/localtime:/etc/localtime:ro
-    - ./volume/.gitbucket:/root/.gitbucket
+version: '2'
 
-server:
-  build: .
-  container_name: gitbucket
-  hostname: gitbucket
-  volumes:
-    - /etc/localtime:/etc/localtime:ro
-  volumes_from:
-    - storage
-  privileged: true
-  tty: true
-  stdin_open: true
-  command: ["entry", "172.17.240.1"]
+services:
+  gitbucket:
+    build: .
+    container_name: gitbucket
+    hostname: gitbucket
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - volume:/root/.gitbucket
+    env_file: ./env/gitbucket.env
+    privileged: true
+    tty: true
+    stdin_open: true
+    command: ["entry"]
+
+volumes:
+  volume:
+    driver: local
