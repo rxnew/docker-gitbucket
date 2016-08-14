@@ -3,6 +3,7 @@ version: '2'
 services:
   gitbucket:
     build: .
+    image: gitbucket
     container_name: gitbucket
     hostname: gitbucket
     volumes:
