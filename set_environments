@@ -1,5 +1,10 @@
-#!/bin/bash
+ENV_FILE="./env/gitbucket.env.template"
 
-source ./env/gitbucket.env
+if [ $# -eq 1 ]; then
+    ENV_FILE=${1}
+fi
+
+source ${ENV_FILE}
+
 export GITBUCKET_SSH_EXTERNAL_PORT=${GITBUCKET_SSH_EXTERNAL_PORT}
 export GITBUCKET_SSH_INTERNAL_PORT=${GITBUCKET_SSH_INTERNAL_PORT}
