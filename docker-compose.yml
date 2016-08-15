@@ -12,10 +12,7 @@ services:
     ports:
       - "${GITBUCKET_SSH_EXTERNAL_PORT}:${GITBUCKET_SSH_INTERNAL_PORT}"
     env_file: ./env/gitbucket.env
-    privileged: true
     tty: true
-    stdin_open: true
-    command: ["entry"]
 
 volumes:
   volume:
