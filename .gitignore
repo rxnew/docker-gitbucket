@@ -12,3 +12,4 @@ GTAGS
 !/lib/*.a
 /env/*
 !/env/.gitkeep
+/environments

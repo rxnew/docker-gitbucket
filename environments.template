@@ -1,0 +1,4 @@
+# Usage: cp environments.template; environments source environments
+
+GITBUCKET_SSH_EXTERNAL_PORT=29418
+GITBUCKET_SSH_INTERNAL_PORT=29418
