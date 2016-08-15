@@ -1,11 +1,9 @@
 #!/bin/bash
 
-if [ -n "$GITBUCKET_VERSION-" ]; then
-   GITBUCKET_VERSION=4.3
-fi
+DEFAULT_GITBUCKET_VERSION=4.3
 
 cd /root/tomcat/webapps
-/usr/bin/wget https://github.com/gitbucket/gitbucket/releases/download/${GITBUCKET_VERSION}/gitbucket.war
+/usr/bin/wget https://github.com/gitbucket/gitbucket/releases/download/${GITBUCKET_VERSION:=$DEFAULT_GITBUCKET_VERSION}/gitbucket.war
 /bin/chown -R root:root /root/.gitbucket
 /root/tomcat/bin/startup.sh
 /bin/bash
