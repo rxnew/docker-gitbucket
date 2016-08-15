@@ -18,3 +18,7 @@ services:
 volumes:
   volume:
     driver: local
+
+networks:
+  default:
+    driver: bridge

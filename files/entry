@@ -1,14 +1,9 @@
 #!/bin/bash
 
-if [ -n "$CONTAINER_IP-" ]; then
-   GITBUCKET_VERSION=172.17.240.1
-fi
-
 if [ -n "$GITBUCKET_VERSION-" ]; then
    GITBUCKET_VERSION=4.3
 fi
 
-/bin/ip addr add ${CONTAINER_IP}/16 dev eth0
 cd /root/tomcat/webapps
 /usr/bin/wget https://github.com/gitbucket/gitbucket/releases/download/${GITBUCKET_VERSION}/gitbucket.war
 /bin/chown -R root:root /root/.gitbucket
