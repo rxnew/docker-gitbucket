@@ -1,4 +1,4 @@
-ENV_FILE="./env/gitbucket.env.template"
+ENV_FILE=".env.template"
 
 if [ $# -eq 1 ]; then
     ENV_FILE=${1}

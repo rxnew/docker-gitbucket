@@ -3,9 +3,9 @@
 https://docs.docker.com/compose/install/
 
 ### Settings
-    $ cp env/gitbucket.env.template env/gitbucket.env
-    $ vi env/gitbucket.env # Please modify
-    $ source set_environments env/gitbucket.env
+    $ cp .env.template .env
+    $ vi .env # Edit
+    $ source set_environments .env
 
 ### Build images
     $ docker-compose build
