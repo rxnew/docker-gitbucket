@@ -8,14 +8,14 @@ services:
     hostname: gitbucket
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - volume:/root/.gitbucket
+      - home:/root/.gitbucket
     ports:
       - "${GITBUCKET_SSH_EXTERNAL_PORT}:${GITBUCKET_SSH_INTERNAL_PORT}"
     env_file: ./env/gitbucket.env
     tty: true
 
 volumes:
-  volume:
+  home:
     driver: local
 
 networks:
