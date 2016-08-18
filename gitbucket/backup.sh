@@ -1,8 +1,8 @@
 #!/bin/bash
 
-backup_dir=$(cd $(dirname $0) && pwd)/backup
 compose=gitbucket
 all_volumes=(home)
+backup_dir=$(cd $(dirname $0) && pwd)/backup
 
 declare -A cmd
 cmd[backup]='docker run --rm -v ${name}:/data -v ${backup_dir}:/backup alpine tar zcfp /backup/${file} -C / data'
