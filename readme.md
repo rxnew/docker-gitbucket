@@ -15,3 +15,8 @@ https://docs.docker.com/compose/install/
 ### Run containers
     $ cd gitbucket
     $ docker-compose up -d
+
+### Backup volumes
+    $ cd gitbucket
+    $ ./backup.sh    # backup to    gitbucket/backup/home.tar.gz
+    $ ./backup.sh -r # restore from gitbucket/backup/home.tar.gz
