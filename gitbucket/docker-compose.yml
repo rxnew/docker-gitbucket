@@ -10,7 +10,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - home:/root/.gitbucket
     ports:
-      - "${GITBUCKET_SSH_EXTERNAL_PORT}:${GITBUCKET_SSH_INTERNAL_PORT}"
+      - ${GITBUCKET_SSH_EXTERNAL_PORT}:${GITBUCKET_SSH_INTERNAL_PORT}
     env_file: .env
     tty: true
     restart: always

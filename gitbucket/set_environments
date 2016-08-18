@@ -1,0 +1,12 @@
+env_file=.env
+
+if [ $# -eq 1 ]; then
+    env_file=${1}
+fi
+
+while read line;
+do
+    name=${line%%=*}
+    value=${line#*=}
+    eval export $name=$value
+done < $env_file
